@@ -49,7 +49,9 @@ class Game{		// Mian game-class
 
 		void printGame(){	// Function for printing game's 2D game area
 			Sleep(1);		// Pausing the program for 1 milisecond for stability
-			system("cls");	// Clearing the screen *NOTE:* Only works in Windows
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+			COORD CursorPos = {0, 0};
+			SetConsoleCursorPosition(hConsole, CursorPos);	// Clearing the screen *NOTE:* Only works in Windows
 			cout << "\n ";	// Printing 2D game area top border
 			for(int i=0; i<hori; i++)cout <<'=';	// Using '=' for top border
 			cout << '\n';
